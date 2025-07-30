@@ -3,3 +3,5 @@
 # Please adapt and uncomment the following lines:
 	name = Fahad
     email = 79867157+ShahandFahad@users.noreply.github.com
+[core]
+	editor = vim

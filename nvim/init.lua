@@ -9,7 +9,7 @@ require("config.lazy")
 
 -- Loaded after pluigns:
 -- Should be loaded after loading  plugin manager and plugins (as it depends on them)
--- set colosheme
+-- set colorscheme
 require("iqsf.after.settheme")
 
 -- remove netrw banner
