@@ -93,7 +93,13 @@ return {
                 -- servers
                 local servers = {
                     clangd = {},
-                    gopls = {},
+                    gopls = {
+                        analyses = {
+                            unusedparams = true,
+                        },
+                        staticcheck = true,
+                        gofumpt = true,
+                    },
                     pyright = {},
                     rust_analyzer = {},
                     lua_ls = {},
