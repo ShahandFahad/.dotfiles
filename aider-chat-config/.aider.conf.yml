@@ -1,0 +1,28 @@
+# general model
+# model: ollama/qwen2.5:3b
+
+# model: ollama_chat/qwen2.5-coder:3b
+# model: ollama_chat/qwen2.5-coder:1.5b
+
+dark-mode: true
+# code-theme: tokyonight
+code-theme: dracula 
+watch-files: true
+
+# Disable automatic commits
+auto-commits: false
+
+
+# Stop the "Unknown Model" pop-up
+show-model-warnings: false
+
+# Since we are on low RAM, disable map tokens to save memory
+# map-tokens: 1024
+
+# Prevent RAM spikes (keep it at 0 for 3B models)
+# Save RAM by disabling the full repo map for local 3B models
+map-tokens: 0
+
+# Run These Commands: Linking:
+# ln -sf ~/.dotfiles/aider.conf.yml ~/.aider.conf.yml
+# ln -sf ~/.dotfiles/.aider.model.settings.yml ~/.aider.model.settings.yml

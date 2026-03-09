@@ -1,0 +1,8 @@
+- name: ollama_chat/qwen2.5:3b
+  extra_params:
+    num_ctx: 8192
+
+
+# This file controls the "brain" of Ollama.
+# We will set num_ctx to 8192.
+# This is the "sweet spot" for 8GB RAM—large enough to hold a few Go/Node files, but small enough to avoid heavy swapping.
