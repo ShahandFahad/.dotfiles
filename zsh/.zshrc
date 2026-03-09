@@ -127,3 +127,87 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
+
+
+#  quickly check public IP
+myip() {
+  curl -s ipinfo.io/ip
+}
+
+# madness
+alias iqsfinity='echo "Khairrrrr!!!"'
+
+# info
+alias sysinfo='uname -a'
+alias whereami='pwd'
+alias sps='ps aux --sort=-%mem'
+alias t3hps='ps aux --sort=-%mem | head -n 3'
+
+echo ""
+
+# ram info
+free -h
+
+echo ""
+
+# disk info
+df -h /
+
+
+
+
+########################## aider-chat #################################
+
+
+# Add uv tools (like aider) to PATH, Which is where the Aider CLI gets installed by default when using npm or yarn global installs.
+export PATH="$HOME/.local/bin:$PATH"
+
+
+###################################################################
+############# with gemini for agentic coding ############# 
+
+# NOTE This is the "Gemini Era" setup, which uses Google's Gemini models via the Aider CLI.
+
+# Load API key (~/.env.local)
+# Load API key (using absolute path for reliability)
+# if [ -f "$HOME/.dotfiles/.env.local" ]; then
+#     source "$HOME/.dotfiles/.env.local"
+# fi
+
+# 2. The Agentic Shortcut
+# --watch-files: Aider will automatically notice when you save a file in Neovim
+# --auto-test: Aider will run your tests and fix code if they fail
+# alias aid='aider --model gemini/gemini-2.0-flash-exp --watch-files'
+# alias aider='aider --model gemini/gemini-3-flash'
+# alias aider='aider --model gemini/gemini-3-flash --watch-files'
+# We use 'gemini/gemini-3-flash-preview' as it's the current free-tier king
+# alias aider-chat='aider --model gemini/gemini-3-flash-preview --watch-files'
+# The Ultimate "Tokyo Night" Agentic Alias
+# alias aider-chat='aider --model gemini/gemini-3-flash-preview --dark-mode --code-theme tokyo-night --watch-files'
+# alias aider-chat='aider --model gemini/gemini-3-flash-preview --dark-mode --code-theme dracula --watch-files'
+
+# Always launch Neovim using the listener so Aider can "see" edits:
+# alias nv-aider='nvim --listen /tmp/aider'
+
+###################################################################
+
+
+###################################################################
+# After Ollama SETUP: And the configs are in 'aider-config dir'
+###################################################################
+
+
+# NOTE This is the "Ollama Era" setup, which uses local Ollama models via the Aider CLI.
+
+
+# Simply launch aider (it will read the .aider.conf.yml automatically)
+# alias aider-chat='aider'
+# The explicit "No-Gemini" Alias
+# alias aider-chat='aider --model ollama_chat/qwen2.5-coder:3b --config ~/.aider.conf.yml'
+# alias aider-chat='aider --model ollama_chat/qwen2.5-coder:1.5b --config ~/.aider.conf.yml'
+# alias aider-chat='aider --model ollama_chat/qwen3.5:0.8b --config ~/.aider.conf.yml'
+# Keep your Neovim listener for the /editor command
+# alias nvim-aider='nvim --listen /tmp/aider'
+
+############################################################
+############################################################
