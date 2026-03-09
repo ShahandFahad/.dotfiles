@@ -1,0 +1,206 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║           kitty.conf — Tokyo Night Rice                     ║
+# ║           Drop into: ~/.config/kitty/kitty.conf             ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+
+# ─── FONTS ────────────────────────────────────────────────────────────────────
+# Install first:
+#   sudo pacman -S ttf-jetbrains-mono-nerd
+# Then regenerate font cache:
+#   fc-cache -fv
+
+font_family        JetBrainsMono Nerd Font
+bold_font          JetBrainsMono Nerd Font Bold
+italic_font        JetBrainsMono Nerd Font Italic
+bold_italic_font   JetBrainsMono Nerd Font Bold Italic
+
+font_size          13.0
+
+# Ligatures — enable if you like them, disable if not
+font_features JetBrainsMonoNF-Regular    +liga +calt
+font_features JetBrainsMonoNF-Bold       +liga +calt
+font_features JetBrainsMonoNF-Italic     +liga +calt
+font_features JetBrainsMonoNF-BoldItalic +liga +calt
+
+# Fine-tune glyph rendering
+adjust_line_height   2
+adjust_column_width  0
+disable_ligatures    never
+
+
+# ─── TOKYO NIGHT COLORS ───────────────────────────────────────────────────────
+# Based on tokyo-night-storm variant (darker, punchier)
+
+# Backgrounds
+background            #1a1b26
+foreground            #c0caf5
+
+# Selection
+selection_background  #283457
+selection_foreground  #c0caf5
+
+# Cursor
+cursor                #bb9af7
+cursor_text_color     #1a1b26
+cursor_shape          block
+cursor_blink_interval 0.5
+cursor_stop_blinking_after 15.0
+
+# URL underlines
+url_color             #73daca
+url_style             curly
+
+# Window border
+active_border_color   #bb9af7
+inactive_border_color #292e42
+bell_border_color     #e0af68
+
+# Tab bar colors (used when tab_bar_style = custom — see below)
+active_tab_foreground   #1a1b26
+active_tab_background   #bb9af7
+inactive_tab_foreground #565f89
+inactive_tab_background #1e2030
+tab_bar_background      #13141f
+
+# ── 16 ANSI Colors ──
+
+# Black
+color0  #15161e
+color8  #414868
+
+# Red
+color1  #f7768e
+color9  #f7768e
+
+# Green
+color2  #9ece6a
+color10 #9ece6a
+
+# Yellow
+color3  #e0af68
+color11 #e0af68
+
+# Blue
+color4  #7aa2f7
+color12 #7aa2f7
+
+# Magenta
+color5  #bb9af7
+color13 #bb9af7
+
+# Cyan
+color6  #7dcfff
+color14 #7dcfff
+
+# White
+color7  #a9b1d6
+color15 #c0caf5
+
+
+# ─── OPACITY + BLUR ───────────────────────────────────────────────────────────
+# KDE Plasma: enable blur via:
+#   System Settings → Window Management → KWin Scripts
+#   or install: yay -S kwin-effects-forceblur
+# Kitty side — set opacity here, blur is handled by the compositor
+
+background_opacity         0.88
+dynamic_background_opacity yes
+
+# Dim inactive windows slightly
+dim_opacity 0.75
+
+
+# ─── WINDOW LAYOUT ────────────────────────────────────────────────────────────
+remember_window_size   no
+initial_window_width   220c
+initial_window_height  50c
+
+window_padding_width   10
+window_margin_width    0
+single_window_margin_width -1
+
+hide_window_decorations titlebar-only
+
+# Resize in small steps
+resize_draw_strategy   static
+
+
+# ─── TAB BAR ──────────────────────────────────────────────────────────────────
+tab_bar_edge           bottom
+tab_bar_style          powerline
+tab_powerline_style    slanted
+
+tab_title_template     " {index}: {title} "
+active_tab_title_template " {index}: {title} "
+
+tab_bar_min_tabs       1
+tab_bar_margin_width   0.0
+tab_bar_margin_height  0.0 0.0
+
+
+# ─── SCROLLBACK ───────────────────────────────────────────────────────────────
+scrollback_lines        10000
+scrollback_pager        less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
+wheel_scroll_multiplier 5.0
+
+
+# ─── PERFORMANCE ──────────────────────────────────────────────────────────────
+repaint_delay    8
+input_delay      2
+sync_to_monitor  yes
+
+
+# ─── BELL ─────────────────────────────────────────────────────────────────────
+enable_audio_bell    no
+visual_bell_duration 0.0
+window_alert_on_bell yes
+
+
+# ─── MOUSE ────────────────────────────────────────────────────────────────────
+mouse_hide_wait       3.0
+focus_follows_mouse   no
+pointer_shape_when_grabbed arrow
+
+
+# ─── KEYBOARD SHORTCUTS ───────────────────────────────────────────────────────
+kitty_mod ctrl+shift
+
+# Tabs
+map kitty_mod+t     new_tab_with_cwd
+map kitty_mod+w     close_tab
+map kitty_mod+right next_tab
+map kitty_mod+left  previous_tab
+map kitty_mod+1     goto_tab 1
+map kitty_mod+2     goto_tab 2
+map kitty_mod+3     goto_tab 3
+map kitty_mod+4     goto_tab 4
+map kitty_mod+5     goto_tab 5
+
+# Splits / windows
+map kitty_mod+enter new_window_with_cwd
+map kitty_mod+]     next_window
+map kitty_mod+[     previous_window
+
+# Font size
+map kitty_mod+equal     change_font_size all +1.0
+map kitty_mod+minus     change_font_size all -1.0
+map kitty_mod+backspace change_font_size all 0
+
+# Reload config
+map kitty_mod+f5 load_config_file
+
+# Scrollback in nvim
+map kitty_mod+h show_scrollback
+
+
+# ─── SHELL INTEGRATION ────────────────────────────────────────────────────────
+shell_integration     enabled
+allow_remote_control  yes
+listen_on             unix:/tmp/kitty
+
+
+# ─── MISC ─────────────────────────────────────────────────────────────────────
+confirm_os_window_close 0
+close_on_child_death    no
+term                    xterm-256color

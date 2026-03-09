@@ -1,0 +1,175 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║         kitty.conf — Rosé Pine (base)                       ║
+# ║         Drop into: ~/.config/kitty/kitty.conf               ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+
+# ─── FONTS ────────────────────────────────────────────────────────────────────
+font_family        JetBrainsMono Nerd Font
+bold_font          JetBrainsMono Nerd Font Bold
+italic_font        JetBrainsMono Nerd Font Italic
+bold_italic_font   JetBrainsMono Nerd Font Bold Italic
+
+font_size          13.0
+
+font_features JetBrainsMonoNF-Regular    +liga +calt
+font_features JetBrainsMonoNF-Bold       +liga +calt
+font_features JetBrainsMonoNF-Italic     +liga +calt
+font_features JetBrainsMonoNF-BoldItalic +liga +calt
+
+adjust_line_height  2
+adjust_column_width 0
+disable_ligatures   never
+
+
+# ─── ROSÉ PINE BASE COLORS ────────────────────────────────────────────────────
+# Palette:
+#   base:      #191724   surface:   #1f1d2e   overlay:   #26233a
+#   muted:     #6e6a86   subtle:    #908caa   text:      #e0def4
+#   love:      #eb6f92   gold:      #f6c177   rose:      #ebbcba
+#   pine:      #31748f   foam:      #9ccfd8   iris:      #c4a7e7
+#   hl_low:    #21202e   hl_med:    #403d52   hl_high:   #524f67
+
+background            #191724
+foreground            #e0def4
+
+selection_background  #403d52
+selection_foreground  #e0def4
+
+# Cursor — rose
+cursor                #ebbcba
+cursor_text_color     #191724
+cursor_shape          block
+cursor_blink_interval 0.5
+cursor_stop_blinking_after 15.0
+
+url_color             #9ccfd8
+url_style             curly
+
+active_border_color   #c4a7e7
+inactive_border_color #26233a
+bell_border_color     #f6c177
+
+# Tab bar
+active_tab_foreground   #191724
+active_tab_background   #ebbcba
+inactive_tab_foreground #6e6a86
+inactive_tab_background #1f1d2e
+tab_bar_background      #13111e
+
+# ── 16 ANSI Colors ──
+
+# Black
+color0  #26233a
+color8  #6e6a86
+
+# Red / Love
+color1  #eb6f92
+color9  #eb6f92
+
+# Green / Pine
+color2  #31748f
+color10 #31748f
+
+# Yellow / Gold
+color3  #f6c177
+color11 #f6c177
+
+# Blue / Foam
+color4  #9ccfd8
+color12 #9ccfd8
+
+# Magenta / Iris
+color5  #c4a7e7
+color13 #c4a7e7
+
+# Cyan / Rose
+color6  #ebbcba
+color14 #ebbcba
+
+# White
+color7  #e0def4
+color15 #e0def4
+
+
+# ─── OPACITY + BLUR ───────────────────────────────────────────────────────────
+background_opacity         0.90
+dynamic_background_opacity yes
+dim_opacity                0.75
+
+
+# ─── WINDOW ───────────────────────────────────────────────────────────────────
+remember_window_size         no
+initial_window_width         220c
+initial_window_height        50c
+window_padding_width         10
+hide_window_decorations      titlebar-only
+resize_draw_strategy         static
+
+
+# ─── TAB BAR ──────────────────────────────────────────────────────────────────
+tab_bar_edge                 bottom
+tab_bar_style                powerline
+tab_powerline_style          slanted
+tab_title_template           " {index}: {title} "
+active_tab_title_template    " {index}: {title} "
+tab_bar_min_tabs             1
+
+
+# ─── SCROLLBACK ───────────────────────────────────────────────────────────────
+scrollback_lines        10000
+wheel_scroll_multiplier 5.0
+
+
+# ─── PERFORMANCE ──────────────────────────────────────────────────────────────
+repaint_delay   8
+input_delay     2
+sync_to_monitor yes
+
+
+# ─── BELL ─────────────────────────────────────────────────────────────────────
+enable_audio_bell    no
+visual_bell_duration 0.0
+window_alert_on_bell yes
+
+
+# ─── MOUSE ────────────────────────────────────────────────────────────────────
+mouse_hide_wait     3.0
+focus_follows_mouse no
+
+
+# ─── KEYBOARD SHORTCUTS ───────────────────────────────────────────────────────
+kitty_mod ctrl+shift
+
+map kitty_mod+t     new_tab_with_cwd
+map kitty_mod+w     close_tab
+map kitty_mod+right next_tab
+map kitty_mod+left  previous_tab
+map kitty_mod+1     goto_tab 1
+map kitty_mod+2     goto_tab 2
+map kitty_mod+3     goto_tab 3
+map kitty_mod+4     goto_tab 4
+map kitty_mod+5     goto_tab 5
+
+map kitty_mod+enter new_window_with_cwd
+map kitty_mod+]     next_window
+map kitty_mod+[     previous_window
+
+map kitty_mod+equal     change_font_size all +1.0
+map kitty_mod+minus     change_font_size all -1.0
+map kitty_mod+backspace change_font_size all 0
+
+map kitty_mod+f5 load_config_file
+map kitty_mod+h  show_scrollback
+
+
+# ─── SHELL INTEGRATION ────────────────────────────────────────────────────────
+shell_integration    enabled
+allow_remote_control yes
+listen_on            unix:/tmp/kitty
+
+
+# ─── MISC ─────────────────────────────────────────────────────────────────────
+confirm_os_window_close 0
+close_on_child_death    no
+term                    xterm-256color
