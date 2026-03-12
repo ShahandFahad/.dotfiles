@@ -49,9 +49,9 @@ vim.keymap.set("n", "Q", "<nop>")
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<cr>")
 
 -- Format file
-vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format()
-end)
+-- vim.keymap.set("n", "<leader>f", function()
+--    vim.lsp.buf.format()
+-- end)
 
 -- Cursor movement in diagnostic menu
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")

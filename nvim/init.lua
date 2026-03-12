@@ -6,6 +6,7 @@ require("iqsf.before.autocommand")
 -- Load Plugin Manager and Deifferent Plugins:
 -- Defining a plugin manage (lazy). Plugins are loaded with in lazy.setup
 require("config.lazy")
+require("config.diagnostics")
 
 -- Loaded after pluigns:
 -- Should be loaded after loading  plugin manager and plugins (as it depends on them)
