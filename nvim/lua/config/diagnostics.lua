@@ -60,7 +60,8 @@ vim.diagnostic.config({
         focusable = true,
         style = "minimal",
         border = "rounded",
-        source = "always", -- always show which LSP the error came from
+        -- source = "always", -- always show which LSP the error came from
+        source = true, -- always show which LSP the error came from
         header = "",
         prefix = "",
     },
